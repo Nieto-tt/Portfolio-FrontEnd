@@ -22,9 +22,18 @@
     [listProjects]="miPortfolio.project"
     (recargandoPortfolio)="cargarVista()"></app-projects>
 
-<app-skills></app-skills>
+<app-skills
+    [isLogged]="isLogged"
+    [userId]="miPortfolio.user.id"    
+    [listSkill]="miPortfolio.skill"
+    [listSoft]="miPortfolio.soft"
+    (recargandoPortfolio)="cargarVista()"></app-skills>
 
-<app-education> </app-education>
+<app-education
+    [isLogged]="isLogged"
+    [userId]="miPortfolio.user.id"
+    [listEdu]="miPortfolio.education"
+    (recargandoPortfolio)="cargarVista()"></app-education>
 
 <app-certification></app-certification>
 
