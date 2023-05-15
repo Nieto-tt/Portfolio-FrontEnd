@@ -1,5 +1,5 @@
 export class userDTO {
-    id: number;
+    userId: number;
     name: string;
     email: string;
     password: string;
@@ -13,7 +13,7 @@ export class userDTO {
     ocupation: string;
   
     constructor(
-      id: number,
+      userId: number,
       name: string,
       email: string,
       password: string,
@@ -26,7 +26,7 @@ export class userDTO {
       description: string,
       ocupation: string
     ) {
-      this.id = id;
+      this.userId = userId;
       this.name = name;
       this.email = email;
       this.password = password;

@@ -1,11 +1,11 @@
-<section id="proyectos" class="info-section container-fluid">
+<section id="projects" class="info-section container-fluid">
 
     <div class="title-section py-2 d-flex justify-content-between align-items-center">
         
         <h2>Proyectos</h2>
         
         <!-- Boton modal Agregar Proyectos-->
-        <span *ngIf="isLogged" class="edit-icon">
+        <span *ngIf="!isLogged" class="edit-icon">
             <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalProyectos" (click)="openModal()">
                 <i class="bi bi-plus-circle-fill d-flex justify-content-end"></i>
             </button>

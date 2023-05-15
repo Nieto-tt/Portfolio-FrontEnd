@@ -12,32 +12,32 @@
 
 <app-experience
     [isLogged]="isLogged"
-    [userId]="miPortfolio.user.id"
+    [userId]="miPortfolio.user.userId"
     [listExperience]="miPortfolio.experience"
     (recargandoPortfolio)="cargarVista()"></app-experience>
 
 <app-projects 
     [isLogged]="isLogged"
-    [userId]="miPortfolio.user.id"
+    [userId]="miPortfolio.user.userId"
     [listProjects]="miPortfolio.project"
     (recargandoPortfolio)="cargarVista()"></app-projects>
 
 <app-skills
     [isLogged]="isLogged"
-    [userId]="miPortfolio.user.id"    
+    [userId]="miPortfolio.user.userId"    
     [listSkill]="miPortfolio.skill"
     [listSoft]="miPortfolio.soft"
     (recargandoPortfolio)="cargarVista()"></app-skills>
 
 <app-education
     [isLogged]="isLogged"
-    [userId]="miPortfolio.user.id"
+    [userId]="miPortfolio.user.userId"
     [listEdu]="miPortfolio.education"
     (recargandoPortfolio)="cargarVista()"></app-education>
 
 <app-certification
     [isLogged]="isLogged"
-    [userId]="miPortfolio.user.id"
+    [userId]="miPortfolio.user.userId"
     [listCert]="miPortfolio.certifications"
     (recargandoPortfolio)="cargarVista()"></app-certification>
 

@@ -1,3 +1,4 @@
+import { HttpResponse } from '@angular/common/http';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { responseDTO } from 'src/app/model/responseDTO';
 import { userDTO } from 'src/app/model/userDTO';
@@ -28,14 +29,26 @@ export class AboutComponent implements OnInit{
     this.perso = perso;
   }
 
-  editUser(userEdited: userDTO){
-    if (((userEdited.name && userEdited.ocupation) != "") && ((userEdited.description && userEdited.imageUrl) != "")){
+  editUser(userEdited: userDTO) {
+    if (userEdited.name && userEdited.ocupation && userEdited.description && userEdited.imageUrl) {
       this.mostrarMsj = true;
-      this.portfolioServ.editUser(userEdited).subscribe(data => {
-        this.respta = data;});
+  
+      this.portfolioServ.editUser(userEdited).subscribe(response => {
+        if (response instanceof HttpResponse) {
+          if (response.status === 200) {
+            console.log("La petición se realizó exitosamente");
+            console.log("Mensaje del servidor:", response.body);
+          } else {
+            console.log("La petición no fue exitosa");
+          }
+        }
+      }, error => {
+        this.respta = {salioBien: true, msj: error.error.text};
+      });
     } else {
       this.mostrarMsj = true;
-      this.respta.msj = "Por favor, ingrese todos los campos requeridos";
+      this.respta = { salioBien: false, msj: "Por favor, ingrese todos los campos requeridos" };
+      console.log(this.respta);
     }
   }
 

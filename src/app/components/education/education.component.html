@@ -4,7 +4,7 @@
         <h2>Educación</h2>
         
     <!-- Boton modal Agregar Educación-->
-        <span *ngIf="isLogged" class="edit-icon">
+        <span *ngIf="!isLogged" class="edit-icon">
             <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalEducacion" (click)="openModal()">
                 <i class="bi bi-plus-circle-fill d-flex justify-content-end"></i>
             </button>

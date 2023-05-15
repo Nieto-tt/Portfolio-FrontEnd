@@ -17,6 +17,13 @@ import { ProjectsComponent } from './components/projects/projects.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AddComponent } from './components/experience/add/add.component';
+import { CommonModule } from '@angular/common';
+import { AddProjectsComponent } from './components/projects/add-projects/add-projects.component';
+import { AddEduComponent } from './components/education/add-edu/add-edu.component';
+import { AddCertComponent } from './components/certification/add-cert/add-cert.component';
+import { AddSoftComponent } from './components/skills/add-soft/add-soft.component';
+import { AddSkillComponent } from './components/skills/add-skill/add-skill.component';
 
 
 @NgModule({
@@ -34,13 +41,20 @@ import { HttpClientModule } from '@angular/common/http';
     PortfolioComponent,
     ProjectsComponent,
     SkillsComponent,
+    AddComponent,
+    AddProjectsComponent,
+    AddEduComponent,
+    AddCertComponent,
+    AddSoftComponent,
+    AddSkillComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

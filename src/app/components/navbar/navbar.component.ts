@@ -23,6 +23,7 @@ export class NavbarComponent  implements OnInit{
   }
 
   goTo(seccion : string){
+    console.log(seccion);
     window.location.hash = "";
     window.location.hash = seccion;
   }

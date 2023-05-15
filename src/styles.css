@@ -4,7 +4,7 @@
 :root {
 	--azul: #2c5577;
 	--naranja: #dc5435;
-	--grisfondo: #e9ecef;
+	--grisfondo: #e3d5ca;
 }
 
 html {
@@ -13,6 +13,7 @@ html {
 }
 
 body {
+	background-color: #f5ebe0;
 	overflow-x: hidden;
 }
 

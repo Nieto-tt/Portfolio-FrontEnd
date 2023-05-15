@@ -23,22 +23,22 @@ export class ExperienceComponent implements OnInit{
   }
 
   openModal(){
-    let expe = {id:0,userId:this.userId,companyName:"",jobTitle:"",startDate:"",endDate:"",jobDescription:"",imageUrl:""};
+    let expe = {expId:0,userId:this.userId,companyName:"",jobTitle:"",startDate:"",endDate:"",jobDescription:"",imageUrl:""};
     this.experience = expe;
-    this.tituloModal = "Agregar elemento a Proyectos";
+    this.tituloModal = "Agregar elemento a Experiencia";
     this.Edit = true;
   }
 
   openEdit(expe: ExperienceDTO){
     this.experience = expe;
-    this.tituloModal = "Editar Proyecto"+this.experience.companyName;
+    this.tituloModal = "Editar Experiencia "+this.experience.companyName;
     this.Edit = true;
   }
 
   deleteExperience(expeId:any){
     if(expeId != undefined && confirm("¿Estás segura de querer eliminar este elemento?")){
       this.portfolioServ.deleteExperience(expeId).subscribe(data => {
-        alert("Proyecto eliminado con éxito");
+        alert("Experiencia eliminada con éxito");
         this.recargandoPortfolio.emit();
         });
     }

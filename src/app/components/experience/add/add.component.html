@@ -1,0 +1,44 @@
+<div>
+    <div class="mb-3">
+        <label for="jobTitle" class="form-label">Puesto</label>
+        <input type="text" 
+            [(ngModel)]="expe.jobTitle"  
+            class="form-control" 
+            required
+            #jobTitle="ngModel"
+            placeholder="Ingresar el nombre del puesto">
+    </div>
+    <div *ngIf="jobTitle.invalid && (jobTitle.dirty || jobTitle.touched)">
+        <p *ngIf="jobTitle?.hasError('required')" class="text-danger">El nombre del puesto es requerexpIdo</p>
+    </div>
+
+    <div class="mb-3">
+        <label for="startDate" class="form-label">Período</label>
+        <input type="text" [(ngModel)]="expe.startDate" class="form-control" id="startDate" placeholder="Ingrese el período de trabajo">
+    </div>
+    <div class="mb-3">
+        <label for="companyName" class="form-label">Nombre del organismo</label>
+        <input type="text" [(ngModel)]="expe.companyName" class="form-control" id="companyName" placeholder="Ingrese el nombre del organismo">
+    </div>
+    <div class="mb-3">
+        <label for="jobDescription" class="form-label">Información adicional</label>
+        <textarea [(ngModel)]="expe.jobDescription" class="form-control" id="jobDescription" rows="3" placeholder="Ingrese una breve descripción..."></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="imageUrl" class="form-label">Url del logotipo</label>
+        <input type="text" [(ngModel)]="expe.imageUrl" class="form-control" id="imageUrl" placeholder="Ingrese url de la imagen">
+    </div>
+</div>
+<div *ngIf="mostrarMsj" [ngClass]="!respta.salioBien? 'alert alert-danger': 'alert alert-success'" role="alert" >
+    <p *ngIf="respta.msj==''">Enviando datos...</p>
+    <p *ngIf="respta.msj!=''">{{respta.msj}}</p>
+</div>
+
+<div *ngIf="!respta.salioBien" class="modal-footer">
+    <button (click)="newExperience(expe)" *ngIf="expe.expId==0" type="submit" class="btn btn-secondary">Agregar</button>
+    <button (click)="editExperience(expe)" *ngIf="expe.expId!= 0" type="submit" class="btn btn-secondary">Editar</button>
+</div>
+<div *ngIf="respta.salioBien" class="modal-footer">
+    <button (click)="cerrarModal()" type="close" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+</div>
+
