@@ -17,31 +17,37 @@
                     <a class="nav-link" href="/">Inicio</a>
                 </li>
                 <li class="nav-item col-6 col-md-auto">
-                    <a class="nav-link">Sobre mí</a>
+                    <a class="nav-link" (click)="goTo('about')" > Sobre mí</a>
                 </li>
                 <li class="nav-item col-6 col-md-auto">
-                    <a class="nav-link" >Habilidades</a>
+                    <a class="nav-link" (click)="goTo('skills')" >Habilidades</a>
                 </li>
                 <li class="nav-item col-6 col-md-auto">
-                        <a class="nav-link">Proyectos</a>
+                        <a class="nav-link" (click)="goTo('projects')" >Proyectos</a>
                 </li>
             </ul>
             <ul class="navbar-nav flex-row flex-wrap ms-md-auto">
                 <li class="nav-item col-6 col-md-auto">
-                    <a class="nav-link navIcon" target="_blank" aria-label="Linkedin">
+                    <a class="nav-link navIcon" target="_blank" href="https://Linkedin.com/{{ linkedinUrl }}"  aria-label="Linkedin">
                         <i class="bi bi-linkedin"></i>
                         <small class="d-md-none ms-2">Linkedin</small>
                     </a>
                     
                 </li>
                 <li class="nav-item col-6 col-md-auto">
-                    <a class="nav-link navIcon" target="_blank" aria-label="GitHub">
+                    <a class="nav-link navIcon" target="_blank" href="https://github.com/{{ githubUrl }}"  aria-label="GitHub">
                         <i class="bi bi-github"></i>
                         <small class="d-md-none ms-2">GitHub</small>
                     </a>
                     
                 </li>
             </ul>
+            <form class="d-flex py-2">
+                <button *ngIf="!isLogged" class="btn btn-secondary" routerLink="/login" type="submit" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Ingresar">
+                    <i class="bi bi-box-arrow-right"></i><small class="d-md-none ms-2">Ingresar</small></button>
+                <button *ngIf="isLogged" (click)="cerrarSesion()" class="btn btn-secondary" type="close"  data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Cerrar Sesión">
+                    <i class="bi bi-box-arrow-left"></i><small class="d-md-none ms-2">Cerrar Sesión</small></button>
+            </form>
         </div>
     </div>
 </nav>

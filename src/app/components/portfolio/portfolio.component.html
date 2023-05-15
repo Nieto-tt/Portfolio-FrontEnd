@@ -1,3 +1,26 @@
-<app-navbar></app-navbar>
+<app-navbar
+    [isLogged]="isLogged"
+    [user]="miPortfolio.user"
+    (recargandoPortfolio)="cargarVista()"></app-navbar>
+
 <app-header></app-header>
+
 <app-about></app-about>
+
+<app-experience></app-experience>
+
+<app-projects 
+    [isLogged]="isLogged"
+    [userId]="miPortfolio.user.id"
+    [listProjects]="miPortfolio.project"
+    (recargandoPortfolio)="cargarVista()"></app-projects>
+
+<app-skills></app-skills>
+
+<app-education> </app-education>
+
+<app-certification></app-certification>
+
+<app-contact></app-contact>
+
+<app-footer></app-footer>
