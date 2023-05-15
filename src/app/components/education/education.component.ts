@@ -25,7 +25,7 @@ export class EducationComponent implements OnInit{
   }
 
   openModal(){
-    let edu = {id:0,userId:this.userId, institutionName:"",degreeName:"",fieldOfStudy:"",startDate:"",endDate:"",imageUrl:""};
+    let edu = {eduId:0,userId:this.userId, institutionName:"",degreeName:"",fieldOfStudy:"",startDate:"",endDate:"",imageUrl:""};
     this.education = edu;
     this.tituloModal = "Agregar elemento a Educación";
     this.Edit = true;

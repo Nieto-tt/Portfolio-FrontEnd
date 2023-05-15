@@ -35,8 +35,12 @@
     [listEdu]="miPortfolio.education"
     (recargandoPortfolio)="cargarVista()"></app-education>
 
-<app-certification></app-certification>
+<app-certification
+    [isLogged]="isLogged"
+    [userId]="miPortfolio.user.id"
+    [listCert]="miPortfolio.certifications"
+    (recargandoPortfolio)="cargarVista()"></app-certification>
 
-<app-contact></app-contact>
+<app-contact [user]="miPortfolio.user"></app-contact>
 
 <app-footer></app-footer>

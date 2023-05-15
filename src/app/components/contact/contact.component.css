@@ -1,4 +1,45 @@
-#educacion {
+#contact {
     background-color: var(--grisfondo);
     margin-left: 0rem;
 }
+
+.contact__container{
+    text-align: center;
+  }
+  
+  .contact__description{
+    margin-bottom: 1.5rem;
+  }
+
+  .bd-grid{
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .contact__button{
+    justify-self: center;
+  }
+
+  .button{
+    display: inline-block;
+    background-color: #4e73df;
+    color: #FFF;
+    padding: .75rem 1rem;
+    border-radius: .5rem;
+    transition: .3s;
+  }
+  
+  .button:hover{
+    background-color: #224abe;
+  }
+
+  .section{
+    padding: 4rem 0 2rem;
+  }
+
+  @media screen and (min-width: 768px){
+    .section{
+        padding-top: 8rem;
+      }
+    }
+  
