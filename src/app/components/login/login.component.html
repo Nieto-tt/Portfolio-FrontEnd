@@ -1,1 +1,51 @@
-<p>login works!</p>
+<section id="heroBanner" class="hero-container d-flex align-items-center">
+    <div class="container">
+  
+      <div class="row justify-content-center">
+  
+        <div class="col-md-6 col-lg-4">
+  
+          <div class="card border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+  
+              <div class="text-center p-5">
+                <h1 class="h4 text-gray-900 mb-4">Inicio de Sesion</h1>
+              </div>
+  
+              <form [formGroup]="loginForm">
+                <div class="form-group">
+                  <label for="user_email" class="form-label">Email:</label>
+                  <input type="email" formControlName="email" class="form-control" placeholder="Ingrese su Mail" required>
+                  <div *ngIf="email?.errors && email?.touched">
+                    <p *ngIf="email?.hasError('required')" class="text-danger">El Email es requerido!</p>
+                    <p *ngIf="email?.hasError('email')" class="text-danger">Ingrese un formato de Email Valido!</p>
+                  </div>
+                </div>
+  
+                <div class="form-group">
+                  <label for="user_password" class="form-label">Contraseña:</label>
+                  <span>
+                    <i id="button-showPass" class="fas fa-eye" (click)="showPass()" [hidden]="showPassword" title="mostrar/ocultar contraseña"></i>
+                    <i id="button-hidePass" class="fas fa-eye-slash" (click)="showPass()" [hidden]="!showPassword" title="mostrar/ocultar contraseña"></i>
+                  </span>
+                  <input type="{{ showPassword ? 'text' : 'password' }}" formControlName="password" class="form-control" placeholder="Ingrese su Contraseña" required>
+                  <div *ngIf="password?.errors && password?.touched">
+                    <p *ngIf="password?.hasError('required')" class="text-danger">La contraseña es requerida</p>
+                    <p *ngIf="password?.hasError('minlength')" class="text-danger">Debe tener un mínimo de 6 caracteres</p>
+                  </div>
+                </div>
+  
+                <div class="form-group">
+                  <button type="submit" class="btn btn-primary btn-user btn-block" [disabled]="loginForm.invalid">Iniciar Sesion</button>
+                </div>
+              </form>
+  
+            </div>
+          </div>
+  
+        </div>
+  
+      </div>
+  
+    </div>
+  </section>
