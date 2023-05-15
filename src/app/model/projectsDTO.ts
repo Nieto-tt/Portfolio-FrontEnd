@@ -1,5 +1,5 @@
 export class ProjectsDTO {
-    id?: number;
+    projectId?: number;
     userId: number;
     title: string;
     description: string;

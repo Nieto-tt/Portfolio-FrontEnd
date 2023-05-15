@@ -1,5 +1,5 @@
 export class technologiesDTO {
-    technologyId: number;
+    technologyId?: number;
     name: string;
   
     constructor(technologyId: number, name: string) {

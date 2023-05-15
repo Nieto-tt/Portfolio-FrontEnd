@@ -1,1 +1,65 @@
-<p>experience works!</p>
+<section id="experiencia" class="info-section container-fluid">
+    
+
+    <div class="title-section py-2 d-flex justify-content-between align-items-center">
+        
+        <h2>Experiencia Laboral</h2>
+        
+        <!-- Boton modal Agregar Experiencia-->
+        <span *ngIf="isLogged" class="edit-icon">
+            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalExperiencia">
+                <i class="bi bi-plus-circle-fill d-flex justify-content-end" (click)="openModal()"></i>
+            </button>
+        </span>
+        
+    </div>
+
+    <!-- Modal Agregar/Editar Experiencia-->
+    <div class="modal fade" id="modalExperiencia" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">{{tituloModal}}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"(click)="closeModal()"></button>
+                </div>
+                <div class="modal-body">
+ 
+                </div>
+            </div>
+        </div>
+    </div>  
+
+    <ul *ngFor="let expe of listExperience" class="row justify-content-center list-unstyled mt-3">
+        
+        <li class="card">
+            <div class="row">
+                <div class="col-sm-8 card-body">
+                    <div class="card-title d-flex justify-content-between align-items-center">
+                        <h4 class="py-1">{{expe.jobTitle}}</h4>
+                        <span *ngIf="!isLogged" class="edit-icon p-1 justify-content-between" >
+                <!-- Boton modal Editar Experiencia-->
+                            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalExperiencia" (click)="openEdit(expe)">
+                                <i class="bi bi-pencil-fill"></i>
+                            </button>
+                <!-- Boton Eliminar Experiencia-->
+                            <button type="button" class="btn btn-outline-danger" (click)="deleteExperience(expe.expId)">
+                                <i class="bi bi-x-circle-fill"></i>
+                            </button>   
+                        </span>
+                    </div>
+                    <div>
+                        <h6>{{expe.startDate}}</h6>
+                        <h6>{{expe.endDate}}</h6>
+                        <p class="card-text pt-1">{{expe.jobDescription}}</p>
+                    </div>
+                </div>
+                <div class="col-sm-4 d-flex align-items-center">
+                    <img class="card-img m-1 img-fluid" [src]="expe.imageUrl" alt="">
+                </div>
+            </div>
+        </li>
+        
+    </ul>
+
+</section>
+

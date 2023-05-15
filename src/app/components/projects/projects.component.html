@@ -6,7 +6,7 @@
         
         <!-- Boton modal Agregar Proyectos-->
         <span *ngIf="isLogged" class="edit-icon">
-            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalProyectos" (click)="abrirModalAgregar()">
+            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalProyectos" (click)="openModal()">
                 <i class="bi bi-plus-circle-fill d-flex justify-content-end"></i>
             </button>
         </span>
@@ -20,7 +20,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="staticBackdropLabel">{{tituloModal}}</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="cerrar"(click)="cerrarModal()"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="cerrar"(click)="closeModal()"></button>
                 </div>
                 <div class="modal-body">
                 </div>
@@ -41,13 +41,13 @@
                     <div class="card-title d-flex justify-content-between align-items-center">
                         <h5 class="col-sm-10 fw-bold">{{proye.title}}</h5>
                         
-                        <span *ngIf="isLogged" class="edit-icon p-1 justify-content-between" >
+                        <span *ngIf="!isLogged" class="edit-icon p-1 justify-content-between" >
                             <!-- Boton modal Editar Proyectos-->
-                            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalProyectos" (click)="abrirModalEditar(proye)">
+                            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalProyectos" (click)="openEdit(proye)">
                                 <i class="bi bi-pencil-fill"></i>
                             </button>
                             <!-- Boton Eliminar Proyectos-->
-                            <button type="button" class="btn btn-outline-danger" (click)="eliminarProyecto(proye.id)">
+                            <button type="button" class="btn btn-outline-danger" (click)="deleteProject(proye.projectId)">
                                 <i class="bi bi-x-circle-fill"></i>
                             </button>   
                         </span>

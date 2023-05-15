@@ -1,5 +1,5 @@
 export class EducationDTO {
-    id?: number;
+    eduId?: number;
     userId: number;
     institutionName: string;
     degreeName: string;

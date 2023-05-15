@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { userDTO } from 'src/app/model/userDTO';
 
 @Component({
   selector: 'app-header',
@@ -7,4 +8,7 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+  @Input() user!: userDTO;
+
+  constructor(){}
 }

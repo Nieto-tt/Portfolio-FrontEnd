@@ -1,5 +1,5 @@
 export class CertificationsDTO {
-    id?: number;
+    certId?: number;
     userId: number;
     certificationName: string;
     institutionName: string;

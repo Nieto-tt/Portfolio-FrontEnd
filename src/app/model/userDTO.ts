@@ -9,6 +9,8 @@ export class userDTO {
     surname: string;
     imageUrl: string;
     bannerUrl: string;
+    description: string;
+    ocupation: string;
   
     constructor(
       id: number,
@@ -20,7 +22,9 @@ export class userDTO {
       linkedinUsername: string,
       surname: string,
       imageUrl: string,
-      bannerUrl: string
+      bannerUrl: string,
+      description: string,
+      ocupation: string
     ) {
       this.id = id;
       this.name = name;
@@ -32,5 +36,7 @@ export class userDTO {
       this.surname = surname;
       this.imageUrl = imageUrl;
       this.bannerUrl = bannerUrl;
+      this.description = description;
+      this.ocupation = ocupation;
     }
   }

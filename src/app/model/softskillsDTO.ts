@@ -1,13 +1,14 @@
 export class softskillsDTO {
-    private id?: number;
-    private userId: number;
-    private skillName: string;
-    private icon: string;
+    softId?: number;
+    userId: number;
+    skillName: string;
+    icon: string;
     
     constructor( 
         userId: number, 
         skillName: string,
-        icon: string) {
+        icon: string
+    ) {
         this.userId = userId;
         this.skillName = skillName;
         this.icon = icon;

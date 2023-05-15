@@ -3,11 +3,18 @@
     [user]="miPortfolio.user"
     (recargandoPortfolio)="cargarVista()"></app-navbar>
 
-<app-header></app-header>
+<app-header [user]="miPortfolio.user"></app-header>
 
-<app-about></app-about>
+<app-about
+    [isLogged]="isLogged"
+    [user]="miPortfolio.user"
+    (recargandoPortfolio)="cargarVista()"></app-about>
 
-<app-experience></app-experience>
+<app-experience
+    [isLogged]="isLogged"
+    [userId]="miPortfolio.user.id"
+    [listExperience]="miPortfolio.experience"
+    (recargandoPortfolio)="cargarVista()"></app-experience>
 
 <app-projects 
     [isLogged]="isLogged"

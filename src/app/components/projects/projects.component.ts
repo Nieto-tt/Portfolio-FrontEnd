@@ -24,20 +24,21 @@ export class ProjectsComponent implements OnInit{
 
   }
 
-  abrirModalAgregar(){
-    let proye = {id:0,userId:this.userId,title:"",description:"",startDate:"",endDate:"",imageUrl:"",liveUrl:""};
+  openModal(){
+    let proye = {projectId:0,userId:this.userId,title:"",description:"",startDate:"",endDate:"",imageUrl:"",liveUrl:""};
     this.project = proye;
     this.tituloModal = "Agregar elemento a Proyectos";
     this.Edit = true;
   }
 
-  abrirModalEditar(proye: ProjectsDTO){
+  openEdit(proye: ProjectsDTO){
     this.project = proye;
     this.tituloModal = "Editar elemento en Proyecto";
     this.Edit = true;
   }
 
-  eliminarProyecto(proyeId:any){
+  deleteProject(proyeId:any){
+    console.log(proyeId);
     if(proyeId != undefined && confirm("¿Estás segura de querer eliminar este elemento?")){
       this.portfolioServ.deleteProject(proyeId).subscribe(data => {
         alert("Proyecto eliminado con éxito");
@@ -46,7 +47,7 @@ export class ProjectsComponent implements OnInit{
     }
   }
 
-  cerrarModal(){
+  closeModal(){
     this.Edit = false;
     this.recargandoPortfolio.emit();
   }

@@ -1,5 +1,5 @@
 export class ExperienceDTO {
-    id?: number;
+    expId?: number;
     userId: number;
     companyName: string;
     jobTitle: string;

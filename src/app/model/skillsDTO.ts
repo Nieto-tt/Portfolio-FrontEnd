@@ -1,15 +1,16 @@
 export class SkillsDTO {
-    private id?: number;
-    private userId: number;
-    private skillName: string;
-    private proficiencyLevel: string;
-    private icon: string;
+    skillId?: number;
+    userId: number;
+    skillName: string;
+    proficiencyLevel: string;
+    icon: string;
     
     constructor( 
         userId: number, 
         skillName: string, 
         proficiencyLevel: string, 
-        icon: string) {
+        icon: string
+    ) {
         this.userId = userId;
         this.skillName = skillName;
         this.proficiencyLevel = proficiencyLevel;
