@@ -23,6 +23,11 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="cerrar"(click)="closeModal()"></button>
                 </div>
                 <div class="modal-body">
+                    <app-add-projects
+                        [project]="project" 
+                        *ngIf="Edit"
+                        (cerrandoModal)="closeModal()">
+                    </app-add-projects>
                 </div>
             </div>
         </div>
@@ -40,7 +45,6 @@
                     
                     <div class="card-title d-flex justify-content-between align-items-center">
                         <h5 class="col-sm-10 fw-bold">{{proye.title}}</h5>
-                        
                         <span *ngIf="!isLogged" class="edit-icon p-1 justify-content-between" >
                             <!-- Boton modal Editar Proyectos-->
                             <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalProyectos" (click)="openEdit(proye)">
@@ -52,11 +56,11 @@
                             </button>   
                         </span>
                     </div>
-
+                    <h6 class="col-sm-10 fw-bold">{{proye.startDate}}-{{proye.endDate}}</h6>
                     <p class="card-text">{{proye.description}}</p>
                     
                     <div class="gap-2 d-flex justify-content-end">
-                        <a [href]="proye.liveUrl" target="_BLANK" class="btn btn-outline-secondary" aria-label="ir al sitio"> Al sitio</a>
+                        <a href="http://{{proye.liveUrl}}" target="_BLANK" class="btn btn-outline-secondary" aria-label="ir al sitio"> Al sitio</a>
                     </div>
                 </div>
             </div>

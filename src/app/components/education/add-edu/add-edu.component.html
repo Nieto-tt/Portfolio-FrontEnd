@@ -1,1 +1,52 @@
-<p>add-edu works!</p>
+<div>
+    <div class="mb-3">
+        <label for="degreeName" class="form-label">Título</label>
+        <input type="text" 
+            [(ngModel)]="edu.degreeName"  
+            class="form-control" 
+            required
+            #degreeName="ngModel"
+            placeholder="Ingrese el título de la formación">
+        <div *ngIf="degreeName.invalid && (degreeName.dirty || degreeName.touched)">
+            <p *ngIf="degreeName?.hasError('required')" class="text-danger">El título es requerido</p>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="institutionName" class="form-label">Nombre de la institución</label>
+        <input type="text" [(ngModel)]="edu.institutionName" class="form-control" id="institutionName" placeholder="Ingrese el periodo de formación">
+    </div>
+
+    <div class="mb-3">
+        <label for="fieldOfStudy" class="form-label">Area de estudio</label>
+        <input type="text" [(ngModel)]="edu.fieldOfStudy" class="form-control" id="fieldOfStudy" placeholder="Ingrese el nombre de la institución">
+    </div>
+
+    <div class="mb-3">
+        <label for="startDate" class="form-label">Fecha inicio</label>
+        <input type="text" [(ngModel)]="edu.startDate" class="form-control" id="startDate" placeholder="Ingrese el nombre de la institución">
+    </div>
+
+    <div class="mb-3">
+        <label for="endDate" class="form-label">Fecha Fin</label>
+        <textarea [(ngModel)]="edu.endDate" class="form-control" id="endDate" rows="3" placeholder="Ingrese una breve descripción..."></textarea>
+    </div>
+    
+    <div class="mb-3">
+        <label for="imageUrl" class="form-label">Url del icono</label>
+        <input type="text" [(ngModel)]="edu.imageUrl" class="form-control" id="imageUrl" placeholder="Ingrese url de la imagen">
+    </div>
+</div>
+
+<div *ngIf="mostrarMsj" [ngClass]="!respta.salioBien? 'alert alert-danger': 'alert alert-success'" role="alert" >
+    <p *ngIf="respta.msj==''">Enviando datos...</p>
+    <p *ngIf="respta.msj!=''">{{respta.msj}}</p>
+</div>
+
+<div *ngIf="!respta.salioBien" class="modal-footer">
+    <button (click)="newEducation(edu)" *ngIf="edu.eduId==0" type="submit" class="btn btn-secondary">Agregar</button>
+    <button (click)="editEducation(edu)" *ngIf="edu.eduId!=0" type="submit" class="btn btn-secondary">Editar</button>
+</div>
+<div *ngIf="respta.salioBien" class="modal-footer">
+    <button (click)="cerrarModal()" type="close" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+</div>

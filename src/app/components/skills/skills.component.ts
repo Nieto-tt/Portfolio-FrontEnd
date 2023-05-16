@@ -75,7 +75,7 @@ export class SkillsComponent implements OnInit{
     }
   }
 
-  cerrarModal(): void {
+  closeModal(): void {
     this.isSoft = false;
     this.Edit = false;
     this.isSkill = false;

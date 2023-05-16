@@ -5,14 +5,14 @@
         
     <!-- Boton modal Agregar Educación-->
         <span *ngIf="!isLogged" class="edit-icon">
-            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalEducacion" (click)="openModal()">
+            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalCert" (click)="openModal()">
                 <i class="bi bi-plus-circle-fill d-flex justify-content-end"></i>
             </button>
         </span>
     </div>
 
     <!-- Modal Agregar/Editar Educación-->
-    <div class="modal fade" id="modalEducacion" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="modalCert" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -20,13 +20,13 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"(click)="closeModal()"></button>
                 </div>
                 <div class="modal-body">
-                    <!--
-                    <app-agregar-editar-edu
-                        [educacion]="educacion" 
-                        *ngIf="agregarEditarActivado"
+                    
+                    <app-add-cert
+                        [certification]="certification" 
+                        *ngIf="Edit"
                         (cerrandoModal)="closeModal()">
-                    </app-agregar-editar-edu>
-                    -->
+                    </app-add-cert>
+                
                 </div>
             </div>
         </div>
@@ -47,7 +47,7 @@
                         
                         <span *ngIf="!isLogged" class="edit-icon p-1 justify-content-between" >
                             <!-- Boton modal Editar Educación-->
-                            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalEducacion" (click)="openEdit(cert)">
+                            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalCert" (click)="openEdit(cert)">
                                 <i class="bi bi-pencil-fill"></i>
                             </button>
                             <!-- Boton Eliminar Educación-->
@@ -62,7 +62,7 @@
                         <h6>{{cert.dateObtained}}</h6>
 
                         <div class="gap-2 d-flex justify-content-end">
-                            <a [href]="cert.certificationUrl" target="_BLANK" class="btn btn-outline-secondary" aria-label="ir al sitio"> Al sitio</a>
+                            <a href="http://{{cert.certificationUrl}}" target="_BLANK" class="btn btn-outline-secondary" aria-label="ir al sitio"> Al sitio</a>
                         </div>
                     </div>
                 </div>

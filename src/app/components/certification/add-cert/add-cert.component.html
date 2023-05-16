@@ -1,1 +1,47 @@
-<p>add-cert works!</p>
+<div>
+    <div class="mb-3">
+        <label for="certificationName" class="form-label">Título</label>
+        <input type="text" 
+            [(ngModel)]="cert.certificationName"  
+            class="form-control" 
+            required
+            #certificationName="ngModel"
+            placeholder="Ingrese el título de la formación">
+        <div *ngIf="certificationName.invalid && (certificationName.dirty || certificationName.touched)">
+            <p *ngIf="certificationName?.hasError('required')" class="text-danger">El título es requerido</p>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="institutionName" class="form-label">Nombre de la institución</label>
+        <input type="text" [(ngModel)]="cert.institutionName" class="form-control" id="institutionName" placeholder="Ingrese el periodo de formación">
+    </div>
+
+    <div class="mb-3">
+        <label for="dateObtained" class="form-label">Fecha Obtenida</label>
+        <input type="text" [(ngModel)]="cert.dateObtained" class="form-control" id="dateObtained" placeholder="Ingrese el nombre de la institución">
+    </div>
+
+    <div class="mb-3">
+        <label for="certificationUrl" class="form-label">Url de Certificado</label>
+        <textarea [(ngModel)]="cert.certificationUrl" class="form-control" id="certificationUrl" rows="3" placeholder="Ingrese una breve descripción..."></textarea>
+    </div>
+    
+    <div class="mb-3">
+        <label for="imageUrl" class="form-label">Url del icono</label>
+        <input type="text" [(ngModel)]="cert.imageUrl" class="form-control" id="imageUrl" placeholder="Ingrese url de la imagen">
+    </div>
+</div>
+
+<div *ngIf="mostrarMsj" [ngClass]="!respta.salioBien? 'alert alert-danger': 'alert alert-success'" role="alert" >
+    <p *ngIf="respta.msj==''">Enviando datos...</p>
+    <p *ngIf="respta.msj!=''">{{respta.msj}}</p>
+</div>
+
+<div *ngIf="!respta.salioBien" class="modal-footer">
+    <button (click)="newCertification(cert)" *ngIf="cert.certId==0" type="submit" class="btn btn-secondary">Agregar</button>
+    <button (click)="editCertification(cert)" *ngIf="cert.certId!=0" type="submit" class="btn btn-secondary">Editar</button>
+</div>
+<div *ngIf="respta.salioBien" class="modal-footer">
+    <button (click)="cerrarModal()" type="close" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+</div>

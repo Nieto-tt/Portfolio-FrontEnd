@@ -1,1 +1,52 @@
-<p>add-projects works!</p>
+<div>
+    <div class="mb-3">
+        <label for="title" class="form-label">Nombre del proyecto</label>
+        <input type="text" 
+            [(ngModel)]="proye.title" 
+            class="form-control"   
+            required
+            #title="ngModel" 
+            placeholder="Ingrese el nombre del proyecto">
+        <div *ngIf="title.invalid && (title.dirty || title.touched)">
+            <p *ngIf="title?.hasError('required')" class="text-danger">El nombre es requerido</p>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="description" class="form-label">Descripción</label>
+        <textarea [(ngModel)]="proye.description" class="form-control" id="description" rows="3" placeholder="Ingrese una breve descripción..."></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label for="startDate" class="form-label">Fecha inicio</label>
+        <textarea [(ngModel)]="proye.startDate" class="form-control" id="startDate" rows="3" placeholder="Ingrese una breve descripción..."></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label for="endDate" class="form-label">Fecha Fin</label>
+        <textarea [(ngModel)]="proye.endDate" class="form-control" id="endDate" rows="3" placeholder="Ingrese una breve descripción..."></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label for="imageUrl" class="form-label">Url de la imagen</label>
+        <input type="text" [(ngModel)]="proye.imageUrl" class="form-control" id="imageUrl" placeholder="Ingrese url de la imagen">
+    </div>
+
+    <div class="mb-3">
+        <label for="liveUrl" class="form-label">Url del live/sitio</label>
+        <input type="text" [(ngModel)]="proye.liveUrl" class="form-control" id="liveUrl" placeholder="Ingrese url del sitio">
+    </div>
+</div>
+
+<div *ngIf="mostrarMsj" [ngClass]="!respta.salioBien? 'alert alert-danger': 'alert alert-success'" role="alert" >
+    <p *ngIf="respta.msj==''">Enviando datos...</p>
+    <p *ngIf="respta.msj!=''">{{respta.msj}}</p>
+</div>
+
+<div *ngIf="!respta.salioBien" class="modal-footer">
+    <button (click)="newProject(proye)" *ngIf="proye.projectId==0" type="submit" class="btn btn-secondary" aria-label="agregar" >Agregar</button>
+    <button (click)="editProject(proye)" *ngIf="proye.projectId!=0" type="submit" class="btn btn-secondary" aria-label="editar" >Editar</button>
+</div>
+<div *ngIf="respta.salioBien" class="modal-footer">
+    <button (click)="cerrarModal()" type="close" class="btn btn-secondary" aria-label="cerrar" data-bs-dismiss="modal">Cerrar</button>
+</div>

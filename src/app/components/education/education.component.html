@@ -20,13 +20,13 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"(click)="closeModal()"></button>
                 </div>
                 <div class="modal-body">
-                    <!--
-                    <app-agregar-editar-edu
-                        [educacion]="educacion" 
-                        *ngIf="agregarEditarActivado"
+                    
+                    <app-add-edu
+                        [education]="education" 
+                        *ngIf="Edit"
                         (cerrandoModal)="closeModal()">
-                    </app-agregar-editar-edu>
-                    -->
+                    </app-add-edu>
+                    
                 </div>
             </div>
         </div>

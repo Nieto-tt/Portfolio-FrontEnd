@@ -14,7 +14,7 @@ export class CertificationComponent implements OnInit{
   @Input() listCert: CertificationsDTO[] = [];
   @Output() recargandoPortfolio = new EventEmitter<any>();
 
-  education!: CertificationsDTO;
+  certification!: CertificationsDTO;
   tituloModal: string = "";
   Edit: boolean = false;
 
@@ -25,21 +25,22 @@ export class CertificationComponent implements OnInit{
   }
 
   openModal(){
+    console.log(this.certification);
     let edu = {certId:0,userId:this.userId, certificationName:"",institutionName:"",dateObtained:"",certificationUrl:"",imageUrl:""};
-    this.education = edu;
+    this.certification = edu;
     this.tituloModal = "Agregar elemento a Certificados";
     this.Edit = true;
   }
 
-  openEdit(edu: CertificationsDTO){
-    this.education = edu;
+  openEdit(cert: CertificationsDTO){
+    this.certification = cert;
     this.tituloModal = "Editar elemento en Certificados";
     this.Edit = true;
   }
 
-  deleteCertification(eduId:any){
-    if(eduId != undefined && confirm("¿Estás segura de querer eliminar este elemento?")){
-      this.portfolioServ.deleteCertification(eduId).subscribe(data => {
+  deleteCertification(certId:any){
+    if(certId != undefined && confirm("¿Estás segura de querer eliminar este elemento?")){
+      this.portfolioServ.deleteCertification(certId).subscribe(data => {
         alert("¡Certificado eliminado con éxito!");
         this.recargandoPortfolio.emit();
         });

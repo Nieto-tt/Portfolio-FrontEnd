@@ -6,23 +6,23 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="staticBackdropLabel">{{tituloModal}}</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"(click)="cerrarModal()"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"(click)="closeModal()"></button>
                 </div>
                 <div class="modal-body">
 
-                    <!-- Cuerpo del Modal Habilidad Tecnica
-                    <app-tecnica-agregar-editar
-                        [habilidadTecnica]="habTecnica"
+                    Cuerpo del Modal Habilidad Tecnica
+                    <app-add-skill
+                        [skill]="skill"
                         *ngIf="isSkill"
-                        (cerrandoModal)="cerrarModal()">
-                    </app-tecnica-agregar-editar>
+                        (cerrandoModal)="closeModal()">
+                    </app-add-skill>
 
                      Cuerpo del Modal Habilidad Blanda
-                    <app-blanda-agregar-editar
-                        [habilidadBlanda]="habBlanda"
+                    <app-add-soft
+                        [softskill]="softskill"
                         *ngIf="isSoft"
-                        (cerrandoModal)="cerrarModal()">
-                    </app-blanda-agregar-editar> -->
+                        (cerrandoModal)="closeModal()">
+                    </app-add-soft>
 
                 </div>
             </div>

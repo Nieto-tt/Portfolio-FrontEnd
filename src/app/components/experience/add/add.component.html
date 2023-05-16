@@ -13,9 +13,15 @@
     </div>
 
     <div class="mb-3">
-        <label for="startDate" class="form-label">Período</label>
+        <label for="startDate" class="form-label">Fecha Inicio</label>
         <input type="text" [(ngModel)]="expe.startDate" class="form-control" id="startDate" placeholder="Ingrese el período de trabajo">
     </div>
+
+    <div class="mb-3">
+        <label for="endDate" class="form-label">Fecha Fin</label>
+        <input type="text" [(ngModel)]="expe.endDate" class="form-control" id="endDate" placeholder="Ingrese el período de trabajo">
+    </div>
+
     <div class="mb-3">
         <label for="companyName" class="form-label">Nombre del organismo</label>
         <input type="text" [(ngModel)]="expe.companyName" class="form-control" id="companyName" placeholder="Ingrese el nombre del organismo">
