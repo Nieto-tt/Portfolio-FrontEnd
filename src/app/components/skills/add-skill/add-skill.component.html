@@ -1,1 +1,45 @@
-<p>add-skill works!</p>
+<div>
+    <div class="mb-3">
+        <label for="skillName" class="form-label">Nombre de la tecnología o herramienta</label>
+        <input type="text" [(ngModel)]="skil.skillName" id="skillName" class="form-control" placeholder="Ej.: Html5">
+    </div>
+
+    <div class="mb-3">
+        <label for="proficiencyLevel" class="form-label">Nivel (selecciona uno)</label>
+        <select [(ngModel)]="skil.proficiencyLevel" class="form-select" 
+         #proficiencyLevel="ngModel" required>
+            <option selected disabled value="">Selecciona uno</option>
+            <option value="Avanzado">Avanzado</option>
+            <option value="Intermedio">Intermedio</option>
+            <option value="Básico">Básico</option>
+        </select>
+        <div *ngIf="proficiencyLevel.invalid && (proficiencyLevel.dirty || proficiencyLevel.touched)">
+            <p *ngIf="proficiencyLevel?.hasError('required')" class="text-danger">El nivel de suficiencia es requerido</p>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="icon" class="form-label">Icono</label>
+        <input type="text" 
+            [(ngModel)]="skil.icon" 
+            class="form-control" 
+            #icon="ngModel" 
+            placeholder="Ej.:'fa-brands fa-html5'"
+            required>            
+        <div *ngIf="icon.invalid && (icon.dirty || icon.touched)">
+            <p *ngIf="icon?.hasError('required')" class="text-danger">El icono es requerido</p>
+        </div>
+    </div>
+</div>
+<div *ngIf="mostrarMsj" [ngClass]="!respta.salioBien? 'alert alert-danger': 'alert alert-success'" role="alert" >
+    <p *ngIf="respta.msj==''">Enviando datos...</p>
+    <p *ngIf="respta.msj!=''">{{respta.msj}}</p>
+</div>
+
+<div *ngIf="!respta.salioBien" class="modal-footer">
+    <button (click)="newSkill(skil)" *ngIf="skil.skillId==0" type="submit" class="btn btn-secondary">Agregar</button>
+    <button (click)="editSkill(skil)" *ngIf="skil.skillId!=0" type="submit" class="btn btn-secondary">Editar</button>
+</div>
+<div *ngIf="respta.salioBien" class="modal-footer">
+    <button (click)="cerrarModal()" type="close" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+</div>

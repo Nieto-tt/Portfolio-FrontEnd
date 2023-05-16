@@ -10,14 +10,13 @@
                 </div>
                 <div class="modal-body">
 
-                    Cuerpo del Modal Habilidad Tecnica
                     <app-add-skill
                         [skill]="skill"
                         *ngIf="isSkill"
                         (cerrandoModal)="closeModal()">
                     </app-add-skill>
 
-                     Cuerpo del Modal Habilidad Blanda
+                     
                     <app-add-soft
                         [softskill]="softskill"
                         *ngIf="isSoft"
@@ -49,7 +48,7 @@
                 <div class="container my-2" id="avanzado">
                     <!--Iconos -->
                     <ul class="row d-flex list-unstyled">
-                        <li *ngFor="let skill of listSkill" class="col-4 col-sm-3 col-md-6 d-flex flex-column align-items-center">
+                        <li *ngFor="let skill of listSkill" class="col-4 col-sm-3 col-md-3 d-flex flex-column align-items-center">
                             
                             <span *ngIf="!isLogged" class="edit-icon p-1 justify-content-between">
                                 <!-- Boton modal Editar Habilidad Tecnica-->
@@ -66,7 +65,7 @@
                             
                             <p>{{skill.skillName}} <i class="iconTecnica" [class]="skill.icon"></i></p>
                             <div [ngSwitch]="skill.proficiencyLevel">
-                                <div *ngSwitchCase="'basic'">
+                                <div *ngSwitchCase="'Básico'">
                                   <div class="progress mt-2">
                                     <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 25%" [style.flex-grow]="0" aria-valuenow="25" aria-valuemin="0" aria-valuemax="200"></div>
                                   </div>
@@ -75,7 +74,7 @@
                                   </div>
                                 </div>
                             
-                                <div *ngSwitchCase="'intermediate'">
+                                <div *ngSwitchCase="'Intermedio'">
                                   <div class="progress mt-2">
                                     <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                                   </div>
@@ -84,7 +83,7 @@
                                   </div>
                                 </div>
                             
-                                <div *ngSwitchCase="'advanced'">
+                                <div *ngSwitchCase="'Avanzado'">
                                   <div class="progress mt-2">
                                     <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                                   </div>

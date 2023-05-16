@@ -30,7 +30,7 @@ export class SkillsComponent implements OnInit{
 
   abrirModalAgregar() : void {
     if (this.isSoft){
-      let soft = {id:0,userId:this.userId,skillName:"",icon:""};
+      let soft = {softId:0,userId:this.userId,skillName:"",icon:""};
       this.softskill = soft;
       this.tituloModal = "Agregar elemento a Habilidades Blandas";
       this.Edit = true; 

@@ -1,1 +1,31 @@
-<p>add-soft works!</p>
+<div>
+    <div class="mb-3">
+        <label for="skillName" class="form-label">Nombre de la habilidad</label>
+        <input type="text" 
+        [(ngModel)]="soft.skillName" 
+        class="form-control" 
+        #skillName="ngModel" 
+        required 
+        placeholder="Ej.: Resolución de problemas">
+    <div *ngIf="skillName.invalid && (skillName.dirty || skillName.touched)">
+        <p *ngIf="skillName?.hasError('required')" class="text-danger">El nombre es requerido</p>
+    </div>
+    </div>
+   
+    <div class="mb-3">
+        <label for="icon" class="form-label">Icono</label>
+        <input type="text" [(ngModel)]="soft.icon" class="form-control" id="icon" placeholder="Ej.:'fa-solid fa-wrench'">
+    </div>
+</div>
+<div *ngIf="mostrarMsj" [ngClass]="!respta.salioBien? 'alert alert-danger': 'alert alert-success'" role="alert" >
+    <p *ngIf="respta.msj==''">Enviando datos...</p>
+    <p *ngIf="respta.msj!=''">{{respta.msj}}</p>
+</div>
+
+<div *ngIf="!respta.salioBien" class="modal-footer">
+    <button (click)="newSoftSkill(soft)" *ngIf="soft.softId==0" type="submit" class="btn btn-secondary">Agregar</button>
+    <button (click)="editSoftSkill(soft)" *ngIf="soft.softId!=0" type="submit" class="btn btn-secondary">Editar</button>
+</div>
+<div *ngIf="respta.salioBien" class="modal-footer">
+    <button (click)="cerrarModal()" type="close" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+</div>
