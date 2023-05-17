@@ -11,15 +11,15 @@ export class NavbarComponent  implements OnInit{
   @Input() user!: userDTO;
   @Input() isLogged!: boolean;
 
-  githubUrl?: string;
-  linkedinUrl?: string;
+  gitUsername?: string;
+  linkedinUsername?: string;
 
   constructor(private auth: AuthenticationService) { }
 
   ngOnInit(): void {
     console.log(this.user)
-    this.githubUrl = this.user!.gitUsername;
-    this.linkedinUrl = this.user!.linkedinUsername;
+    this.gitUsername = this.user!.gitUsername;
+    this.linkedinUsername = this.user!.linkedinUsername;
   }
 
   goTo(seccion : string){

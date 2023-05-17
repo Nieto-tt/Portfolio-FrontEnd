@@ -16,7 +16,7 @@ import { technologiesDTO } from '../model/technologiesDTO';
 })
 export class PortfolioService {
 
-  urlBackend: string = "http://localhost:8080/"
+  urlBackend: string = "https://portfolio-nietotomas.onrender.com/"
 
   constructor(private http:HttpClient) { }
 
